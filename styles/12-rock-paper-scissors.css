@@ -53,6 +53,60 @@ body {
   cursor: pointer;
 }
 
+.botones {
+  position: absolute;
+  display: flex;
+  left: 38%;
+  top: 50%;
+}
+
+.jugar {
+  font-size: 22px;
+  background-color: transparent;
+  border: 3px solid white;
+  border-radius: 10px;
+  color: white;
+  font-family: 'Lilita One', cursive;
+  margin-right: 20px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.jugar:hover {
+  background-color: white;
+  color: var(--blue);
+}
+
+.jugar:active {
+  transform: scale(0.95);
+  transition: none;
+}
+
+.imagenes {
+  position: absolute;
+  left: 37%;
+  top: 23%;
+}
+
+.imagenes img {
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.imagenes img:hover {
+  transform: scale(1.2);
+}
+
+.imagenes img:active {
+  transform: scale(0.95);
+  transition: none;
+}
+
+
 .move-icon {
   height: 50px;
 }
