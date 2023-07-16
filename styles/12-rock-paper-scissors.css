@@ -1,12 +1,56 @@
-body {
-  background-color: rgb(25, 25, 25);
-  color: white;
-  font-family: Arial;
+:root {
+  --blue: rgb(89, 177, 250);
+  --red: rgb(241, 78, 78);
+  --green: rgb(97, 236, 69);
 }
 
-.title {
-  font-size: 30px;
-  font-weight: bold;
+.container {
+  display: flex;
+  height: 100%;
+}
+
+.half {
+  flex: 1;
+}
+
+.all {
+  flex: 1;
+  background-color: var(--blue);
+}
+
+/*Colores para ambos lados*/
+/* .half-left {
+  background-color: var(--red);
+}
+
+.half-right {
+  background-color: var(--green);
+} */
+
+  
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  position: relative;
+  color: white;
+  font-family: Arial;
+  font-family: 'Lilita One', cursive;
+}
+
+.titulo {
+  font-size: 60px;
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s ease-in-out;
+}
+
+.titulo:hover {
+  transform: translate(-50%, -50%) scale(1.2);
+  cursor: pointer;
 }
 
 .move-icon {
