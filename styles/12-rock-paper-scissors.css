@@ -2,6 +2,7 @@
   --blue: rgb(89, 177, 250);
   --red: rgb(241, 78, 78);
   --green: rgb(97, 236, 69);
+  --yellow: rgb(233, 230, 72);
   --clippy: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
   --clippy2: polygon(0 0, 0 0, 0 100%, 0 100%);
 }
@@ -30,14 +31,23 @@
   background-color: var(--blue);
 }
 
-.half-left-win {
+.half-left-win,
+.half-right-win {
   background-color: var(--green);
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   transition: clip-path 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);;
 }
 
+.half-left-lose,
 .half-right-lose {
   background-color: var(--red);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  transition: clip-path 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);;
+}
+
+.half-left-tie,
+.half-right-tie {
+  background-color: var(--yellow);
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   transition: clip-path 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);;
 }
@@ -70,6 +80,7 @@ body {
   top: 10%;
   transform: translate(-50%, -50%);
   transition: all 0.5s ease-in-out;
+  z-index: 50;
 }
 
 .titulo:hover {
@@ -134,6 +145,7 @@ body {
   position: absolute;
   left: 2%;
   top: 2%;
+  z-index: 50;
 }
 
 .jugar-ya {
@@ -143,6 +155,10 @@ body {
   font-size: 40px;
   font-family: 'Lilita One', cursive;
   transition: all 0.2s ease-in-out;
+}
+
+.jugar-otra-vez {
+  left: 39.5%;
 }
 
 .config {
@@ -198,6 +214,42 @@ body {
   color: var(--blue);
 }
 
+.tu-eleccion {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  left: 18%;
+  top: 30%;
+  z-index: 30;
+}
+
+.bot-eleccion {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  right: 18%;
+  top: 30%;
+  z-index: 30;
+}
+
+.tu-eleccion div,
+.bot-eleccion div {
+  font-size: 60px;
+  font-family: 'Lilita One', cursive;
+  margin-bottom: 20px;
+}
+
+.tu-eleccion img,
+.bot-eleccion img {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 20px;
+}
+
+
+/* 
 .move-icon {
   height: 50px;
 }
@@ -223,10 +275,11 @@ body {
 }
 
 .reset-score-button,
-.auto-play-button {
+.auto-play-button { 
   background-color: white;
   border: none;
   font-size: 15px;
   padding: 8px 15px;
   cursor: pointer;
 }
+*/

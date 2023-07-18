@@ -119,15 +119,48 @@ container.addEventListener('click', function(event) {
 
 container.addEventListener('click', function(event) {
   if (event.target.classList.contains('jugar-ya')) {
+
     container.innerHTML = `
     <div class="half half-left"></div>
-    <div class="middle"></div>
     <div class="half half-right"></div>
+    <div class="resultados"></div>
+    
+
     `
     setTimeout(function() {
-      document.querySelector('.half-left').classList.add('half-left-win');
-      document.querySelector('.half-right').classList.add('half-right-lose');
+      document.querySelector('.half-left').classList.add(`${tuClase}`);
+      document.querySelector('.half-right').classList.add(`${botClase}`);
+      document.querySelector('.resultados').innerHTML = `
+        <button class="jugar regresar">Regresar</button>
+        <div class="titulo">Resultados</div>
+        <div class="tu-eleccion">
+          <div>${result}</div>
+          <img src="images/${tuEleccion}">
+        </div>
+        <div class="bot-eleccion">
+          <div>${computerResult}</div>
+          <img src="images/${botEleccion}">
+        </div>
+        <button class="jugar jugar-ya jugar-otra-vez">Jugar otra vez</button>
+
+        `;
     }, 3000);
+
+    document.body.addEventListener('keydown', (event) => {
+      if (event.key === 'q') {
+        playGame('rock');
+      } else if (event.key === 'w') {
+        playGame('paper');
+      } else if (event.key === 'e') {
+        playGame('scissors');
+      } else if (event.key === 'Backspace') {
+        score.wins = 0;
+        score.losses = 0;
+        score.ties = 0;
+        localStorage.removeItem('score');
+        updateScoreElement();
+      }
+    });
   }
 });
 

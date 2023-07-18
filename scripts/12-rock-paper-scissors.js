@@ -4,8 +4,6 @@ let score = JSON.parse(localStorage.getItem('score')) || {
   ties: 0
 };
 
-updateScoreElement();
-
 /*
 if (!score) {
   score = {
@@ -35,32 +33,6 @@ function autoPlay() {
   }
 }
 
-document.querySelector('.js-rock-button')
-  .addEventListener('click', () => {
-    playGame('rock');
-});
-
-document.querySelector('.js-paper-button')
-  .addEventListener('click', () => {
-    playGame('paper');
-});
-
-document.querySelector('.js-scissors-button')
-  .addEventListener('click', () => {
-    playGame('scissors');
-});
-
-document.querySelector('.js-rock-button')
-  .addEventListener('click', () => {
-    playGame('rock');
-});
-
-document.querySelector('.js-reset-score-button')
-  .addEventListener('click', () => {
-    resetScore();
-});
-
-
 
 function autoPlayText() {
   if (isAutoPlaying) {
@@ -69,12 +41,6 @@ function autoPlayText() {
     document.querySelector('.js-auto-play-button').innerHTML = 'Auto Play';
   }
 }
-
-document.querySelector('.js-auto-play-button').addEventListener('click', () => {
-  autoPlay();
-  autoPlayText();
-});
-
 
 
 document.body.addEventListener('keydown', (event) => {
@@ -96,50 +62,75 @@ document.body.addEventListener('keydown', (event) => {
   }
 });
 
+let result = '';
+let computerResult = '';
+let tuClase = '';
+let tuEleccion = '';
+let botClase = '';
+
 function playGame(playerMove) {
   const computerMove = pickComputerMove();
 
-  let result = '';
-
   if (playerMove === 'scissors') {
+    tuEleccion = 'scissors-emoji.png';
+
     if (computerMove === 'rock') {
       result = 'You lose.';
+      computerResult = 'You win.'
     } else if (computerMove === 'paper') {
       result = 'You win.';
+      computerResult = 'You lose.'
     } else if (computerMove === 'scissors') {
       result = 'Tie.';
+      computerResult = 'Tie.'
     }
 
   } else if (playerMove === 'paper') {
+    tuEleccion = 'paper-emoji.png';
+
     if (computerMove === 'rock') {
       result = 'You win.';
+      computerResult = 'You lose.'
     } else if (computerMove === 'paper') {
       result = 'Tie.';
+      computerResult = 'Tie.'
     } else if (computerMove === 'scissors') {
       result = 'You lose.';
+      computerResult = 'You win.'
     }
     
   } else if (playerMove === 'rock') {
+    tuEleccion = 'rock-emoji.png';
+
     if (computerMove === 'rock') {
       result = 'Tie.';
+      computerResult = 'Tie.'
     } else if (computerMove === 'paper') {
       result = 'You lose.';
+      computerResult = 'You win.'
     } else if (computerMove === 'scissors') {
       result = 'You win.';
+      computerResult = 'You lose.'
     }
   }
 
   if (result === 'You win.') {
     score.wins ++;
+    tuClase = 'half-left-win';
+    botClase = 'half-right-lose';
   } else if (result === 'You lose.') {
     score.losses ++;
+    tuClase = 'half-left-lose';
+    botClase = 'half-right-win';
   } else if (result === 'Tie.') {
     score.ties ++;
+    tuClase = 'half-left-tie';
+    botClase = 'half-right-tie';
   }
 
   localStorage.setItem('score', JSON.stringify(score));
 
-  updateScoreElement();
+  /* updateScoreElement();
 
   document.querySelector('.js-result').
     innerHTML = result;
@@ -148,13 +139,14 @@ function playGame(playerMove) {
   You 
   <img src="images/${playerMove}-emoji.png" class="move-icon"> 
   <img src="images/${computerMove}-emoji.png" class="move-icon">
-  Computer`
+  Computer` */
+  console.log(result);
 }
 
-function updateScoreElement() {
+/* function updateScoreElement() {
   document.querySelector('.js-score')
     .innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
-}
+} */
 
 function resetScore() {
   score.wins = 0;
@@ -165,6 +157,8 @@ function resetScore() {
   updateScoreElement();
 }
 
+let botEleccion = '';
+
 function pickComputerMove() {
   const randomNumber = Math.random();
 
@@ -172,10 +166,13 @@ function pickComputerMove() {
 
   if (randomNumber >= 0 && randomNumber < 1 / 3) {
     computerMove = 'rock';
+    botEleccion = 'rock-emoji.png';
   } else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3) {
     computerMove = 'paper';
+    botEleccion = 'paper-emoji.png';
   } else if (randomNumber >= 2 / 3 && randomNumber < 1) {
     computerMove = 'scissors';
+    botEleccion = 'scissors-emoji.png';
   }
 
   return computerMove;
