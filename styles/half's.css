@@ -1,0 +1,53 @@
+:root {
+  --blue: rgb(89, 177, 250);
+  --red: rgb(241, 78, 78);
+  --green: rgb(97, 236, 69);
+  --yellow: rgb(233, 230, 72);
+  --clippy: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+  --clippy2: polygon(0 0, 0 0, 0 100%, 0 100%);
+}
+
+.container {
+  display: flex;
+  height: 100%;
+}
+
+.half {
+  flex: 1;
+  clip-path: var(--clippy);
+}
+
+.half-right {
+  clip-path: var(--clippy2);
+}
+
+.middle {
+  width: 10px;
+  background-color: var(--green);
+}
+
+.all {
+  flex: 1;
+  background-color: var(--blue);
+}
+
+.half-left-win,
+.half-right-win {
+  background-color: var(--green);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  transition: clip-path 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);;
+}
+
+.half-left-lose,
+.half-right-lose {
+  background-color: var(--red);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  transition: clip-path 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);;
+}
+
+.half-left-tie,
+.half-right-tie {
+  background-color: var(--yellow);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  transition: clip-path 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);;
+}

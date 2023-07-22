@@ -1,0 +1,49 @@
+.botones {
+  position: absolute;
+  display: flex;
+  left: 38%;
+  top: 50%;
+}
+
+.jugar {
+  font-size: 22px;
+  background-color: transparent;
+  border: 3px solid white;
+  border-radius: 10px;
+  color: white;
+  font-family: 'Lilita One', cursive;
+  margin-right: 20px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.jugar:hover {
+  background-color: white;
+  color: var(--blue);
+}
+
+.jugar:active {
+  transform: scale(0.95);
+  transition: none;
+}
+
+.jugar-ya {
+  position: absolute;
+  left: 45%;
+  bottom: 10%;
+  font-size: 40px;
+  font-family: 'Lilita One', cursive;
+  transition: all 0.2s ease-in-out;
+}
+
+.jugar-otra-vez {
+  left: 39.5%;
+}
+
+.regresar {
+  position: absolute;
+  left: 2%;
+  top: 2%;
+  z-index: 50;
+}

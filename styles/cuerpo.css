@@ -1,0 +1,135 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  position: relative;
+  color: white;
+  font-family: Arial;
+  font-family: 'Lilita One', cursive;
+}
+
+.titulo {
+  font-size: 60px;
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s ease-in-out;
+  z-index: 50;
+}
+
+.titulo:hover {
+  transform: translate(-50%, -50%) scale(1.2);
+  cursor: pointer;
+}
+
+.imagenes {
+  position: absolute;
+  left: 37%;
+  top: 23%;
+}
+
+.imagenes img {
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.imagenes img:hover {
+  transform: scale(1.2);
+}
+
+.imagenes img:active {
+  transform: scale(0.95);
+  transition: none;
+}
+
+.config {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  left: 30%;
+  top: 30%;
+  font-size: 40px;
+  font-family: 'Lilita One', cursive;
+  transition: all 0.2s ease-in-out;
+}
+
+.config-rondas,
+.config-tiempo {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.rondas,
+.tiempo {
+  margin-left: 10px;
+  left: 30%;
+  top: 40%;
+  font-size: 20px;
+  font-family: 'Lilita One', cursive;
+  color: white;
+  padding: 10px;
+  background-color: transparent;
+  border: 3px solid white;
+  border-radius: 6px;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+}
+
+.rondas:hover,
+.tiempo:hover {
+  background-color: white;
+  color: var(--blue);
+}
+
+.config-rondas:hover,
+.config-tiempo:hover {
+  transform: scale(1.2);
+}
+
+.seleccion {
+  background-color: white;
+  color: var(--blue);
+}
+
+.tu-eleccion {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  left: 18%;
+  top: 30%;
+  z-index: 30;
+}
+
+.bot-eleccion {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  right: 18%;
+  top: 30%;
+  z-index: 30;
+}
+
+.tu-eleccion div,
+.bot-eleccion div {
+  font-size: 60px;
+  font-family: 'Lilita One', cursive;
+  margin-bottom: 20px;
+}
+
+.tu-eleccion img,
+.bot-eleccion img {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 20px;
+}
