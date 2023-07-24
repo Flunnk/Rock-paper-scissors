@@ -90,6 +90,10 @@ body {
   color: var(--blue);
 }
 
+.tiempo-personalizado::placeholder {
+  color: white;
+}
+
 .config-rondas:hover,
 .config-tiempo:hover {
   transform: scale(1.2);
@@ -132,4 +136,13 @@ body {
   width: 200px;
   height: 200px;
   margin-bottom: 20px;
+}
+
+.countdown {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Lilita One', cursive;
+  font-size: 50px;
 }
