@@ -130,6 +130,8 @@ container.addEventListener('click', function(event) {
     const config = getConfig();
     count = config.timer;
 
+    console.log(count);
+
     const countdownElement = document.querySelector('.countdown');
 
     function updateCountdown(count) {

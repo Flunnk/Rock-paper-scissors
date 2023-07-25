@@ -1,8 +1,5 @@
 const defaultConfig = {
-  language: {
-    code: 'es',
-    html: ''
-  },
+  language: 'es',
   rounds: 0,
   timer: 3
 };
