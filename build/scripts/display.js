@@ -119,109 +119,92 @@ container.addEventListener('click', function(event) {
 });
 
 container.addEventListener('click', function(event) {
-  if (event.target.classList.contains('jugar-ya')) {
+    if (event.target.classList.contains('jugar-ya')) {
 
-    container.innerHTML = `
-    <div class="half half-left"></div>
-    <div class="half half-right"></div>
-    <div class="resultados"></div>
-    <div class="countdown"></div>
-    `
-    const config = getConfig();
-    count = config.timer;
-
-    console.log(count);
-
-    const countdownElement = document.querySelector('.countdown');
-
-    function updateCountdown(count) {
-      countdownElement.innerHTML = count;
-    }
-
-    function startCountdown() {
-      let timer = setInterval(function() {
-        if (count === 0) {
-          clearInterval(timer);
-          countdownElement.innerHTML = '';
-        }
-        updateCountdown(count);
-        count--;
-      }, 1000);
-    }
-
-    let newElement = document.createElement('div');
-    newElement.classList.add('countdown');
-
-    
-    startCountdown();
-
-    setTimeout(function() {
-      document.querySelector('.half-left').classList.add(`${tuClase}`);
-      document.querySelector('.half-right').classList.add(`${botClase}`);
-      document.querySelector('.resultados').innerHTML = 
+      container.innerHTML = `
+      <div class="half half-left"></div>
+      <div class="half half-right"></div>
+      <div class="resultados"></div>
+      <div class="countdown"></div>
       `
-        <button class="jugar regresar">Regresar</button>
-        <div class="titulo">Resultados</div>
-        <div class="resultado">
-          <div class="resultados">Victorias: ${score.wins}</div>
-          <div class="resultados">Derrotas: ${score.losses}</div>
-          <div class="resultados">Empates: ${score.ties}</div>
-        </div>
-        <div class="tu-eleccion">
-          <div>${result}</div>
-          <img src="images/${tuEleccion}">
-        </div>
-        <div class="bot-eleccion">
-          <div>${computerResult}</div>
-          <img src="images/${botEleccion}">
-        </div>
-        <button class="jugar jugar-ya jugar-otra-vez">Jugar otra vez</button>
+      const config = getConfig();
+      count = config.timer;
 
-        `;
+      console.log(count);
 
-      if (countdownElement) {
-        countdownElement.remove();
-      }       
-    }, count * 1000 + 1000);
+      const countdownElement = document.querySelector('.countdown');
 
-    if (count > 0) {
-      
-
-    document.body.addEventListener('keydown', (event) => {
-      if (event.key === 'q') {
-        playGame('rock');
-      } else if (event.key === 'w') {
-        playGame('paper');
-      } else if (event.key === 'e') {
-        playGame('scissors');
-      } else if (event.key === 'Backspace') {
-        score.wins = 0;
-        score.losses = 0;
-        score.ties = 0;
-        localStorage.removeItem('score');
-        updateScoreElement();
+      function updateCountdown(count) {
+        countdownElement.innerHTML = count;
       }
-    });
-  }
-});
 
-container.addEventListener('change', function(event) {
-  if (event.target.classList.contains('rondas')) {
-    const rondas = document.querySelector('.rondas');
-    const div = document.querySelector('.config-rondas');
-    count = rondas.value;
-    if (count === '-1') {
-      div.innerHTML = `
-      <div>Número de rondas: </div>
-      <input type="number" class="rondas rondas-personalizado" placeholder="Rondas">
-      `;
-    } else {
-      count = rondas.value;
+      function startCountdown() {
+        let timer = setInterval(function() {
+          if (count === 0) {
+            clearInterval(timer);
+            countdownElement.innerHTML = '';
+          }
+          updateCountdown(count);
+          count--;
+        }, 1000);
+      }
+
+      let newElement = document.createElement('div');
+      newElement.classList.add('countdown');
+
+      
+      startCountdown();
+
+      setTimeout(function() {
+        document.querySelector('.half-left').classList.add(`${tuClase}`);
+        document.querySelector('.half-right').classList.add(`${botClase}`);
+        document.querySelector('.resultados').innerHTML = 
+        `
+          <button class="jugar regresar">Regresar</button>
+          <div class="titulo">Resultados</div>
+          <div class="resultado">
+            <div class="resultados">Victorias: ${score.wins}</div>
+            <div class="resultados">Derrotas: ${score.losses}</div>
+            <div class="resultados">Empates: ${score.ties}</div>
+          </div>
+          <div class="tu-eleccion">
+            <div>${result}</div>
+            <img src="images/${tuEleccion}">
+          </div>
+          <div class="bot-eleccion">
+            <div>${computerResult}</div>
+            <img src="images/${botEleccion}">
+          </div>
+          <button class="jugar jugar-ya jugar-otra-vez">Jugar otra vez</button>
+
+          `;
+
+        if (countdownElement) {
+          countdownElement.remove();
+        }       
+      }, count * 1000 + 1000);
+
+      if (count > 0) {
+        
+
+      document.body.addEventListener('keydown', (event) => {
+        if (event.key === 'q') {
+          playGame('rock');
+        } else if (event.key === 'w') {
+          playGame('paper');
+        } else if (event.key === 'e') {
+          playGame('scissors');
+        } else if (event.key === 'Backspace') {
+          score.wins = 0;
+          score.losses = 0;
+          score.ties = 0;
+          localStorage.removeItem('score');
+          updateScoreElement();
+        }
+      });
     }
-    defaultConfig.rounds = count;
-    console.log(getConfig());
-  };
-});
+  }
+  });
 
 container.addEventListener('change', function(event) {
   if (event.target.classList.contains('tiempo')) {
