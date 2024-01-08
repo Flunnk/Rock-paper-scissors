@@ -146,3 +146,15 @@ body {
   font-family: 'Lilita One', cursive;
   font-size: 50px;
 }
+
+.resultado {
+  position: absolute;
+  display: flex;
+  bottom: 5%;
+  left: 2%;
+  font-size: 30px;
+}
+
+.resultados {
+  margin-right: 15px;
+}

@@ -158,9 +158,15 @@ container.addEventListener('click', function(event) {
     setTimeout(function() {
       document.querySelector('.half-left').classList.add(`${tuClase}`);
       document.querySelector('.half-right').classList.add(`${botClase}`);
-      document.querySelector('.resultados').innerHTML = `
+      document.querySelector('.resultados').innerHTML = 
+      `
         <button class="jugar regresar">Regresar</button>
         <div class="titulo">Resultados</div>
+        <div class="resultado">
+          <div class="resultados">Victorias: ${score.wins}</div>
+          <div class="resultados">Derrotas: ${score.losses}</div>
+          <div class="resultados">Empates: ${score.ties}</div>
+        </div>
         <div class="tu-eleccion">
           <div>${result}</div>
           <img src="images/${tuEleccion}">
@@ -177,6 +183,9 @@ container.addEventListener('click', function(event) {
         countdownElement.remove();
       }       
     }, count * 1000 + 1000);
+
+    if (count > 0) {
+      
 
     document.body.addEventListener('keydown', (event) => {
       if (event.key === 'q') {

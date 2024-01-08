@@ -70,4 +70,4 @@ function changeTimer() {
 }
 
 console.log(getConfig());
-
+console.log(`Rounds: ${rounds}`)

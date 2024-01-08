@@ -4,6 +4,8 @@ let score = JSON.parse(localStorage.getItem('score')) || {
   ties: 0
 };
 
+let rounds = 0;
+
 /*
 if (!score) {
   score = {
@@ -154,7 +156,7 @@ function resetScore() {
   score.ties = 0;
   localStorage.removeItem('score');
 
-  updateScoreElement();
+  // updateScoreElement();
 }
 
 let botEleccion = '';
@@ -177,3 +179,5 @@ function pickComputerMove() {
 
   return computerMove;
 }
+resetScore()
+console.log(score)
